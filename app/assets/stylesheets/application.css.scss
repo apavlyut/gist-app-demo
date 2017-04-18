@@ -1,1 +1,10 @@
 @import "bootstrap";
+
+.has-error {
+  .help-block, label {
+    color: #a94442;
+  }
+  input {
+    border: 1px solid #ebcccc;
+  }
+}

@@ -1,0 +1,31 @@
+h1
+  'Все гисты
+  - if signed_in?
+    = link_to 'New Gist', new_gist_path, class: 'btn btn-primary'
+
+br
+
+table.table
+  thead
+    tr
+      th Title
+      th Body
+      th Secret
+      th User
+      th
+      th
+      th
+
+  tbody
+    - @gists.each do |gist|
+      tr
+        td = gist.title
+        td = gist.body
+        td = gist.secret
+        td = gist.user
+          
+        td = link_to 'Show', gist
+        td = link_to 'Edit', edit_gist_path(gist)
+        td = link_to 'Destroy', gist, data: { confirm: 'Are you sure?' }, method: :delete
+
+br

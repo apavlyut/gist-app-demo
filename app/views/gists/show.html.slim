@@ -1,0 +1,19 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @gist.title
+p
+  strong Body:
+.card.card-block
+  = @gist.body_html.div.html_safe
+p
+  strong Secret:
+  = @gist.secret
+p
+  strong User:
+  = @gist.user.email
+
+= link_to 'Edit', edit_gist_path(@gist)
+'  |
+= link_to 'Back', gists_path

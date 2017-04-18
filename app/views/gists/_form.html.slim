@@ -1,0 +1,13 @@
+h1 Гист
+br
+= simple_form_for(@gist) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :body
+    = f.input :secret
+    / = f.association :user
+
+  .form-actions
+    = f.button :submit, 'Сохранить', class: 'btn btn-primary'

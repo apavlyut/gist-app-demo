@@ -4,3 +4,9 @@ center
 hr  
 p
   = @hello
+
+
+table.table
+  - Gist.published.each do |gist|
+    tr
+      td = link_to gist.title, gist

@@ -11,6 +11,7 @@ html
       nav.nav
         = link_to 'Главная', root_path, class: 'nav-link'
         - if signed_in?
+          = link_to 'Гисты', gists_path, class: 'nav-link'
           = link_to current_user.email, '#', class: 'nav-link'
           = link_to 'Выход', session_path, method: :delete, class: 'nav-link'
         - else
