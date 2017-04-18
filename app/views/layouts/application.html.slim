@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title GistAppDemo
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
+  body 
+    .container
+      nav.nav
+        = link_to 'Главная', root_path, class: 'nav-link'
+        - if signed_in?
+          = link_to current_user.email, '#', class: 'nav-link'
+          = link_to 'Выход', session_path, method: :delete, class: 'nav-link'
+        - else
+          = link_to 'Вход', new_session_path, class: 'nav-link'
+        
+      hr
+      
+      = yield
