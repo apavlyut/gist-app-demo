@@ -8,8 +8,7 @@ br
 table.table
   thead
     tr
-      th Title
-      th Body
+      th Gist
       th Secret
       th User
       th
@@ -19,10 +18,21 @@ table.table
   tbody
     - @gists.each do |gist|
       tr
-        td = gist.title
-        td = gist.body
-        td = gist.secret
-        td = gist.user
+        td 
+          
+          .card
+            .card-header
+              = gist.title
+              '
+              = link_to 'Edit', edit_gist_path(gist), class: 'btn btn-sm btn-secondary'
+            .card-block
+              = gist.body_html.div.html_safe
+              hr
+              .btn-group.btn-group-sm
+                = link_to 'Show', gist, class: 'btn btn-secondary'
+                = link_to 'Destroy', gist, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+              
+        td = gist.user.email
           
         td = link_to 'Show', gist
         td = link_to 'Edit', edit_gist_path(gist)
